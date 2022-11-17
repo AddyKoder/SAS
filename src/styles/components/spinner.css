@@ -1,0 +1,50 @@
+
+.spinner{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border: 3px solid var(--color-accent);
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	margin: .5em;
+	animation: fade-in 0.5s;
+	background-color: var(--color-bg);
+	margin-inline:auto;
+	margin-block: 5em;
+}
+
+.spinner:hover{
+	cursor:progress;
+}
+
+.spinner .rotator{
+	
+	height: 65px;
+	width: 0px;
+	background-color: var(--color-bg);
+	animation: spinning ease-in-out 1.2s infinite;
+}
+
+@keyframes spinning {
+	0%{
+		width: 4px;
+		transform: rotate(0deg);
+	}	
+	50%{
+		width: 35px;
+	}
+	100%{
+		width: 4px;
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes fade-in{
+	from{
+		opacity:0
+	}
+	to{
+		opacity:1
+	}
+}

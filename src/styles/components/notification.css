@@ -1,0 +1,32 @@
+.notification{
+	padding: 1em 2em;
+	margin: 3em 0;
+	border-radius: 2em;
+}
+
+.notification h2{
+	font-weight: 400;
+	font-size: 2.6rem;
+	margin-block: 0.5em;
+	padding-left: 0.5em;
+	margin-bottom: 0;
+}
+
+.notification p{
+	padding-top: 1em;
+	margin-top: 0;
+	font-weight: 300;
+	font-size: 1.5rem;
+	padding-left: 0.8em;
+}
+
+
+.error{
+	color:red;
+	background-color: rgba(255, 0, 0, 0.24);
+}
+
+.success{
+	color: green;
+	background-color: rgba(0, 255, 0, 0.1);
+}

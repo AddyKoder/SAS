@@ -1,0 +1,25 @@
+
+.reschedules table{
+	margin-inline:auto;
+	border-collapse: collapse;
+	margin-block:4em;
+
+}
+
+.reschedules table, .reschedules th, .reschedules td{
+	border: 1px solid rgba(128, 128, 128, 0.425);
+}
+
+.reschedules td{
+	font-weight: 200;
+}
+.reschedules th{
+	opacity: 0.6;
+}
+
+.reschedules th, .reschedules td{
+	text-transform: capitalize;
+	font-size: 1.6rem;
+	text-align: center;
+	padding: 0.5em 1em;
+}

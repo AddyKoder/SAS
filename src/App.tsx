@@ -68,13 +68,13 @@ export default function App() {
 				<div className='reschedules' style={{marginTop:'2em'}}>
 					<h1>Your Reschedules : <span style={{opacity:'.5'}}>{ localStorage.getItem('teacherName') == null?'':localStorage.getItem('teacherName')}</span></h1>
 					{
-						yourReschedules === 'no' ? <div className="getIdDialogue" style={{ padding: '2em', border: '1px solid var(--color-accent)', backgroundColor: 'rgba(0, 153, 255, 0.3)', borderRadius: '2em', margin: '2em 1em'}}>
+						yourReschedules === 'no' ? <div className="getIdDialogue" style={{ padding: '2em', border: '1px solid var(--color-accent)', backgroundColor: 'rgba(0, 153, 255, 0.3)', borderRadius: '2em', margin: '2em 1em', maxWidth:'500px', marginInline:'auto'}}>
 
 							<p style={{fontSize: '1.2rem', opacity:'0.7', fontWeight:'300'}}>View all your reschedules easily, separated from all the mess below just enter your Name and Teacher ID which you can get from the person managing the SAS server.</p>
 
-							<input onChange={e => setName(e.target.value)} type="text" placeholder='Your Name' style={{ width: '100%', boxSizing:'border-box', backgroundColor:'var(--color-bg)', border:'none', padding:'.5em 1em', borderRadius:'1em', marginBlock:'.5em'}}/>
+							<input onChange={e => setName(e.target.value)} type="text" placeholder='Your Name' style={{ width: '100%', boxSizing:'border-box', backgroundColor:'var(--color-bg)', border:'none', padding:'.5em 1em', borderRadius:'1em', marginBlock:'.5em', fontSize:'1.2rem'}}/>
 
-							<input onChange={e => setId(Number(e.target.value))} type="number" maxLength={5} min={0} placeholder='Teacher ID'style={{ width: '100%', boxSizing:'border-box', backgroundColor:'var(--color-bg)', border:'none', padding:'.5em 1em', borderRadius:'1em', marginBlock:'.5em'}}/>
+							<input onChange={e => setId(Number(e.target.value))} type="number" maxLength={5} min={0} placeholder='Teacher ID'style={{ width: '100%', boxSizing:'border-box', backgroundColor:'var(--color-bg)', border:'none', padding:'.5em 1em', borderRadius:'1em', marginBlock:'.5em', fontSize:'1.2rem'}}/>
 							<button style={{ width: '100%', boxSizing: 'border-box', backgroundColor: 'var(--color-accent)', border: 'none', padding: '.5em 1em', borderRadius: '1em', marginBlock: '.5em' }} onClick={() => {
 								
 								localStorage.setItem('teacherId', String(id))

@@ -9,8 +9,8 @@ export default function RescheduleList({ reschedules , yourReschedules=false}: {
 					{yourReschedules === false && 
 						<th>Teacher</th>
 					}
-					<th>Class</th>
 					<th>Period</th>
+					<th>Class</th>
 				</tr>
 			</thead>
 			<tbody>{reschedules.map(r => {
@@ -19,8 +19,8 @@ export default function RescheduleList({ reschedules , yourReschedules=false}: {
 					{yourReschedules === false &&
 						<td>{name}</td>
 					}
-					<td>{Object(r).className}</td>
 					<td>{Object(r).periodNo}</td>
+					<td>{Object(r).className}</td>
 				</tr>
 			})}</tbody>
 		</table>

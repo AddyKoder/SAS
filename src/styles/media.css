@@ -3,9 +3,3 @@
 		font-size: 12px;
 	}
 }
-
-@media screen and (max-width: 800px){
-	:root{
-		font-size: 10px;
-	}
-}

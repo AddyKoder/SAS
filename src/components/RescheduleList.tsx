@@ -1,6 +1,4 @@
-
-export default function RescheduleList({ reschedules , yourReschedules=false}: { reschedules: object[], yourReschedules?: boolean }) {
-
+export default function RescheduleList({ reschedules , yourReschedules=false, filter}: { reschedules: object[], yourReschedules?: boolean, filter:string }) {
 
 	return (
 		<table>
@@ -13,7 +11,22 @@ export default function RescheduleList({ reschedules , yourReschedules=false}: {
 					<th>Class</th>
 				</tr>
 			</thead>
-			<tbody>{reschedules.map(r => {
+			
+			<tbody>{
+				// filtering reschedules for searching
+				reschedules.filter(reschedule => {
+					const filterQuery = filter === undefined? '': filter.toLowerCase()
+					const r = Object(reschedule)
+					if (
+						r.teacherName.toLowerCase().includes(filterQuery) ||
+						String(r.periodNo).toLowerCase().includes(filterQuery) ||
+						r.className.toLowerCase().includes(filterQuery)) {
+						return 1
+					}
+					return 0
+			})
+			//mapping over filtered reschedules to plot them
+				.map(r => {
 				const name = Object(r).teacherName || 'Undefined';
 				return <tr style={name === 'Undefined' ? { backgroundColor: 'rgba(255,0,0,0.3)' }:{}} key={`${Object(r).teacherId}-${Object(r).periodNo}`}>
 					{yourReschedules === false &&

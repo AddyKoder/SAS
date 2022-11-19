@@ -23,6 +23,22 @@ export default function App() {
 	const [yourReschedules, setYourReschedules] = useState<string | object[]>([])
 	const [name, setName] = useState('')
 	const [id, setId] = useState(0)
+
+	const [search, setSearch] = useState('')
+	const [debouncedSearch, setDebouncedSearch] = useState('')
+
+	// updating debounced search
+	useEffect(() => {
+
+		const searchTimeout = setTimeout(() => {
+			setDebouncedSearch(search)	
+		}, 200);
+		
+		return () => {
+			clearTimeout(searchTimeout)
+		}
+
+	},[search])
 	
 	// fetching the reschedules from json bin api
 	useEffect(() => {
@@ -89,16 +105,16 @@ export default function App() {
 
 					<div className="your-reschedules">
 								{yourReschedules.length === 0 ? <Notification type='success' heading='Yayy... No Reschedules !' content='Relax, you do not have any reschedules assigned for today' /> :
-									<RescheduleList reschedules={yourReschedules as object[]} yourReschedules={true} />}
+									<RescheduleList reschedules={yourReschedules as object[]} yourReschedules={true} filter=''/>}
 					</div>}
 					<hr  />
 
 
 
 					<h1>All Reschedules :</h1>
-					<input className='search' type="text" placeholder='Search | Filter'/>
+					<input className='search' type="text" placeholder='Search | Filter' onChange={e=>setSearch(e.target.value)}/>
 					<div className="all-reschedules">
-						<RescheduleList reschedules={reschedules as object[]}/>
+						<RescheduleList reschedules={reschedules as object[]} filter={debouncedSearch} />
 					</div>
 				</div>	
 			}

@@ -60,39 +60,49 @@ export default function App() {
 			<Navbar/>
 			{ reschedules === 'pending' && <Spinner/> }
 			{ reschedules === 'failed' && <Notification type='error' heading='Cannot fetch Reschedules' content='Due to some error the reschedules cannot be fetched from the server. Check your Internet connection or otherwise there can be some internal server issue with the application' />}
-			{reschedules === 'no' && 
-				<h2 style={{fontSize:'2rem', opacity:'.5', textAlign:'center', fontWeight:'200'}}>Attendence is not take yet</h2>	
-			}
 
+			{/* when no reschedules are uploaded for that day */}
+			{reschedules === 'no' && 
+				<h2>Attendence is not take yet</h2>	
+			}
+			{/* The main area */}
 			{!['pending', 'failed', 'no'].includes(reschedules as string) && 
 				<div className='reschedules' style={{marginTop:'2em'}}>
-					<h1>Your Reschedules : <span style={{opacity:'.5'}}>{ localStorage.getItem('teacherName') == null?'':localStorage.getItem('teacherName')}</span></h1>
+					<h1>Your Reschedules : <span >{ localStorage.getItem('teacherName') == null?'':localStorage.getItem('teacherName')}</span></h1>
 					{
-						yourReschedules === 'no' ? <div className="getIdDialogue" style={{ padding: '2em', border: '1px solid var(--color-accent)', backgroundColor: 'rgba(0, 153, 255, 0.3)', borderRadius: '2em', margin: '2em 1em', maxWidth:'500px', marginInline:'auto'}}>
+						yourReschedules === 'no' ? <div className="getIdDialogue" >
 
-							<p style={{fontSize: '1.2rem', opacity:'0.7', fontWeight:'300'}}>View all your reschedules easily, separated from all the mess below just enter your Name and Teacher ID which you can get from the person managing the SAS server.</p>
+							<p >View all your reschedules easily, separated from all the mess below just enter your Name and Teacher ID which you can get from the person managing the SAS server.</p>
 
-							<input onChange={e => setName(e.target.value)} type="text" placeholder='Your Name' style={{ width: '100%', boxSizing:'border-box', backgroundColor:'var(--color-bg)', border:'none', padding:'.5em 1em', borderRadius:'1em', marginBlock:'.5em', fontSize:'1.2rem'}}/>
+							<input onChange={e => setName(e.target.value)} type="text" placeholder='Your Name' />
 
-							<input onChange={e => setId(Number(e.target.value))} type="number" maxLength={5} min={0} placeholder='Teacher ID'style={{ width: '100%', boxSizing:'border-box', backgroundColor:'var(--color-bg)', border:'none', padding:'.5em 1em', borderRadius:'1em', marginBlock:'.5em', fontSize:'1.2rem'}}/>
-							<button style={{ width: '100%', boxSizing: 'border-box', backgroundColor: 'var(--color-accent)', border: 'none', padding: '.5em 1em', borderRadius: '1em', marginBlock: '.5em' }} onClick={() => {
+							<input onChange={e => setId(Number(e.target.value))} type="number" maxLength={5} min={0} placeholder='Teacher ID'/>
+
+							<button  onClick={() => {
 								
 								localStorage.setItem('teacherId', String(id))
 								localStorage.setItem('teacherName', name)
 								location.reload()
 							}}>OK</button>
+
 						</div>:
+
 					<div className="your-reschedules">
 								{yourReschedules.length === 0 ? <Notification type='success' heading='Yayy... No Reschedules !' content='Relax, you do not have any reschedules assigned for today' /> :
 									<RescheduleList reschedules={yourReschedules as object[]} yourReschedules={true} />}
 					</div>}
-					<hr style={{opacity:'.5', borderBottom:'none'}} />
+					<hr  />
+
+
+
 					<h1>All Reschedules :</h1>
+					<input className='search' type="text" placeholder='Search | Filter'/>
 					<div className="all-reschedules">
 						<RescheduleList reschedules={reschedules as object[]}/>
 					</div>
 				</div>	
 			}
+
 			<Footer/>
 		</div>
 	);

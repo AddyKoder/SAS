@@ -84,3 +84,7 @@ input.search{
 	display:block;
 	margin-inline:auto;
 }
+
+.developer h2{
+	opacity:1;
+}

@@ -24,7 +24,7 @@
 	padding: 0.5em 1em;
 }
 
-h2{
+h2.bg-notify{
 	font-size: 2rem;
 	opacity: .5;
 	text-align: center;
@@ -33,7 +33,7 @@ h2{
 }
 
 .reschedules h1{
-	opacity: .5;
+	opacity: .7;
 }
 
 .getIdDialogue{
@@ -83,8 +83,4 @@ input.search{
 	width: 90%;
 	display:block;
 	margin-inline:auto;
-}
-
-.developer h2{
-	opacity:1;
 }

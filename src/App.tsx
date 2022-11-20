@@ -79,7 +79,7 @@ export default function App() {
 
 			{/* when no reschedules are uploaded for that day */}
 			{reschedules === 'no' && 
-				<h2>Attendence is not taken yet...</h2>	
+				<h2 className='bg-notify'>Attendence is not taken yet...</h2>	
 			}
 			{/* The main area */}
 			{!['pending', 'failed', 'no'].includes(reschedules as string) && 

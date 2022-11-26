@@ -104,7 +104,7 @@ export default function App() {
 						</div>:
 
 					<div className="your-reschedules">
-								{yourReschedules.length === 0 ? <Notification type='success' heading='Yayy... No Reschedules !' content='Relax, you do not have any reschedules assigned for today' /> :
+								{yourReschedules.length === 0 ? <Notification type='success' heading='No Reschedules !' content='Relax, you do not have any reschedules assigned for today' /> :
 									<RescheduleList reschedules={yourReschedules as object[]} yourReschedules={true} filter=''/>}
 					</div>}
 					<hr  />

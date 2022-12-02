@@ -17,10 +17,13 @@ export default function RescheduleList({ reschedules , yourReschedules=false, fi
 				reschedules.filter(reschedule => {
 					const filterQuery = filter === undefined? '': filter.toLowerCase()
 					const r = Object(reschedule)
-					if (
+					// will only render the reschedule object if
+					// it's not a undefined period i.e. unable to be rescheduled
+					// and if it's one of the fields match with query
+					if (r.teacherName !== undefined &&(
 						r.teacherName.toLowerCase().includes(filterQuery) ||
 						String(r.periodNo).toLowerCase().includes(filterQuery) ||
-						r.className.toLowerCase().includes(filterQuery)) {
+						r.className.toLowerCase().includes(filterQuery))) {
 						return 1
 					}
 					return 0
